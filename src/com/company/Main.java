@@ -1,6 +1,7 @@
 package com.company;
 
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -15,8 +16,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         List<Seller> list = new ArrayList<>();
+        List<Department> list2 = new ArrayList<>();
         System.out.println("==== Test 1:  SellerDao findByID=====");
         SellerDao sellerDao = DaoFactory.creatSellerDao();
+        DepartmentDao departmentDao = DaoFactory.creatDepartmentDao();
         Seller seller  = sellerDao.findById(7);
         System.out.println(seller);
         System.out.println("==== Test 2:  SellerDao findByDepartment =====");
@@ -40,6 +43,11 @@ public class Main {
         int id = reader.nextInt();
         sellerDao.deleteById(id);
         System.out.println("Delete  Completed");
+        System.out.println("==== Test 7:  SellerDao Delete =====");
+        list2 = departmentDao.findAll();
+        list2.forEach(System.out::println);
+
         reader.close();
+
     }
 }
