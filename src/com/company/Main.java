@@ -70,6 +70,11 @@ public class Main {
         department3.setName(departmentName);
         departmentDao.update(department3);
         System.out.println("Department updated!");
+        System.out.println("==== Test 12:  DepartmentDao Update =====");
+        System.out.print("Enter name to find: ");
+        departmentName = reader.nextLine();
+        department3 =departmentDao.findByName(departmentName);
+        System.out.println(department3);
         reader.close();
 
     }
