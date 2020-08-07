@@ -13,12 +13,15 @@ public class Main {
 
     public static void main(String[] args) {
         List<Seller> list = new ArrayList<>();
-        System.out.println("==== Test SellerDao findByID=====");
+        System.out.println("==== Test 1:  SellerDao findByID=====");
         SellerDao sellerDao = DaoFactory.creatSellerDao();
         Seller seller  = sellerDao.findById(7);
         System.out.println(seller);
-        System.out.println("==== Test SellerDao findByDepartment =====");
+        System.out.println("==== Test 2:  SellerDao findByDepartment =====");
          list  = sellerDao.findByDepartment(new Department(2,"Eletronics"));
+        list.forEach(System.out::println);
+        System.out.println("==== Test 2:  SellerDao findByDepartment =====");
+        list  = sellerDao.findAll();
         list.forEach(System.out::println);
     }
 }
