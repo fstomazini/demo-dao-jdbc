@@ -18,10 +18,16 @@ public class Main {
         Seller seller  = sellerDao.findById(7);
         System.out.println(seller);
         System.out.println("==== Test 2:  SellerDao findByDepartment =====");
-         list  = sellerDao.findByDepartment(new Department(2,"Eletronics"));
+        Department department = new Department(2,null);
+        list  = sellerDao.findByDepartment(department);
         list.forEach(System.out::println);
-        System.out.println("==== Test 2:  SellerDao findByDepartment =====");
+        System.out.println("==== Test 3:  SellerDao findAll =====");
         list  = sellerDao.findAll();
         list.forEach(System.out::println);
+        System.out.println("==== Test 4:  SellerDao Insert =====");
+        Seller newSeller = new Seller(null,"Murilo Feijo","murilo@hotmail.com", new Date(), 2000.00, department);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! new id = " + newSeller.getId());
+
     }
 }
