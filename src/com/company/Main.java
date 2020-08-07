@@ -43,10 +43,33 @@ public class Main {
         int id = reader.nextInt();
         sellerDao.deleteById(id);
         System.out.println("Delete  Completed");
-        System.out.println("==== Test 7:  SellerDao Delete =====");
+        System.out.println("==== Test 7:  DepartmentDao FindAll =====");
         list2 = departmentDao.findAll();
         list2.forEach(System.out::println);
-
+        System.out.println("==== Test 8:  DepartmentDao FindId =====");
+        System.out.print("Enter id to find: ");
+        id = reader.nextInt();
+        Department department1 = departmentDao.findById(id);
+        System.out.println(department1);
+        System.out.println("==== Test 9:  DepartmentDao Delete =====");
+        System.out.print("Enter id to Delete: ");
+        id = reader.nextInt();
+        departmentDao.deleteById(id);
+        System.out.println("Department Deleted!");
+        System.out.println("==== Test 10:  DepartmentDao insert =====");
+        System.out.print("Enter Department name to insert: ");
+        reader.nextLine();
+        String departmentName = reader.nextLine();
+        Department department3 = new Department(null, departmentName);
+        departmentDao.insert(department3);
+        System.out.println(department3.getName());
+        System.out.println(department3);
+        System.out.println("==== Test 11:  DepartmentDao Update =====");
+        System.out.print("Enter name to update: ");
+        departmentName = reader.nextLine();
+        department3.setName(departmentName);
+        departmentDao.update(department3);
+        System.out.println("Department updated!");
         reader.close();
 
     }
