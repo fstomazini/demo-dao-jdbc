@@ -28,6 +28,10 @@ public class Main {
         Seller newSeller = new Seller(null,"Murilo Feijo","murilo@hotmail.com", new Date(), 2000.00, department);
         sellerDao.insert(newSeller);
         System.out.println("Inserted! new id = " + newSeller.getId());
-
+        System.out.println("==== Test 5:  SellerDao Update =====");
+        seller = sellerDao.findById(1);
+        seller.setName("Martha Wayne");
+        sellerDao.update(seller);
+        System.out.println("Update Completed");
     }
 }
